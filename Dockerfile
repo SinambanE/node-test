@@ -6,4 +6,4 @@ COPY . .
 
 # CMD [ "node", "test.js"]
 
-CMD [ "/bin/bash" ]
+# CMD [ "/bin/bash" ]

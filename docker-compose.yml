@@ -1,0 +1,13 @@
+version: "3.7"
+volumes:
+  node-test-node_modules:
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-test
+    image: node-test
+    volumes:
+      - .:/app
+    tty: true
