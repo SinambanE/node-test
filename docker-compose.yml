@@ -1,6 +1,6 @@
 version: "3.7"
 volumes:
-  node-test-node_modules:
+  notes-app-node_modules:
 services:
   node:
     build:
@@ -8,6 +8,10 @@ services:
       dockerfile: Dockerfile
     container_name: node-test
     image: node-test
+    ports:
+      - 8080:8080
+      - 9229:9229
     volumes:
       - .:/app
+      - notes-app-node_modules:/app/notes-app/node_modules
     tty: true

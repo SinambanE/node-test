@@ -4,6 +4,4 @@ WORKDIR /app
 
 COPY . .
 
-# CMD [ "node", "test.js"]
-
-# CMD [ "/bin/bash" ]
+RUN npm i -g nodemon
