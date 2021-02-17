@@ -1,12 +1,15 @@
 version: "3.7"
 volumes:
   notes-app-node_modules:
+  weather-app-node_modules:
 services:
   node:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: node-test
+    env_file:
+      - .env
     image: node-test
     ports:
       - 8080:8080
@@ -14,4 +17,5 @@ services:
     volumes:
       - .:/app
       - notes-app-node_modules:/app/notes-app/node_modules
+      - weather-app-node_modules:/app/weather-app/node_modules
     tty: true
