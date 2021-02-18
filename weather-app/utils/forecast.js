@@ -2,15 +2,16 @@ const request = require('request')
 
 const forecast = (latitude, longitude, callback) => {
     const weatherToken = process.env.WEATHERSTACK_API_KEY
-    const weatherUrl = `http://api.weatherstack.com/current?access_key=${weatherToken}&query=${latitude},${longitude}`
+    const url = `http://api.weatherstack.com/current?access_key=${weatherToken}&query=${latitude},${longitude}`
+    const option = {url, json: true}
 
-    request({url: weatherUrl, json: true}, (err, res) => {
+    request(option, (err, { body }) => {
         if (err) {
             callback('Unable to connect to weather api!', undefined)
-        } else if (res.body.error) {
+        } else if (body.error) {
             callback('Invalid query values!', undefined)
         } else {
-            const { temperature, feelslike } = res.body.current
+            const { temperature, feelslike } = body.current
             callback(undefined, `The current temperature is ${temperature}. It feels like ${feelslike}`)
         }
     })
