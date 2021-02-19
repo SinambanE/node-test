@@ -2,6 +2,7 @@ version: "3.7"
 volumes:
   notes-app-node_modules:
   weather-app-node_modules:
+  web-server-node_modules:
 services:
   node:
     build:
@@ -13,9 +14,9 @@ services:
     image: node-test
     ports:
       - 8080:8080
-      - 9229:9229
     volumes:
       - .:/app
       - notes-app-node_modules:/app/notes-app/node_modules
       - weather-app-node_modules:/app/weather-app/node_modules
+      - web-server-node_modules:/app/web-server/node_modules
     tty: true
