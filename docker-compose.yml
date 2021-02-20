@@ -4,7 +4,10 @@ volumes:
   weather-app-node_modules:
   web-server-node_modules:
   task-app-node_modules:
+  data-node:
 services:
+
+  # node apps
   node:
     build:
       context: .
@@ -22,3 +25,17 @@ services:
       - web-server-node_modules:/app/web-server/node_modules
       - task-app-node_modules:/app/task-app/node_modules
     tty: true
+    depends_on:
+      - db
+  
+  # db
+  db:
+    image: mongo
+    container_name: mongodb
+    volumes:
+        - data-node:/data/db
+    ports:
+        - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
