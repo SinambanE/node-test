@@ -4,6 +4,8 @@ volumes:
   weather-app-node_modules:
   web-server-node_modules:
   task-app-node_modules:
+  basic-node_modules:
+  assign-node_modules:
   data-node:
 services:
 
@@ -24,6 +26,8 @@ services:
       - weather-app-node_modules:/app/weather-app/node_modules
       - web-server-node_modules:/app/web-server/node_modules
       - task-app-node_modules:/app/task-app/node_modules
+      - basic-node_modules:/app/basic/node_modules
+      - assign-node_modules:/app/assign/node_modules
     tty: true
     depends_on:
       - db
