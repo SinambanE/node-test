@@ -4,8 +4,19 @@ const path = require('path')
 
 const router = express.Router()
 
+const users = []
+
 router.get('/', (req, res) => {
-    res.sendFile(path.resolve(rootPath, 'views/users.html'))
+    console.log(users)
+    res.render('users', {pageTitle: "Users", users})
 })
 
-module.exports = router
+router.post('/', (req, res) => {
+    const fields = req.body
+    const { name, age } = fields
+    users.push({name, age})
+    res.redirect('/')
+})
+
+exports.router = router
+exports.users = users

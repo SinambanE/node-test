@@ -1,0 +1,7 @@
+extends layouts/app
+block content 
+    each user in users
+        h1 #{user.name}
+        h2 #{user.age}
+    else 
+        h1 NO USER FOUND 

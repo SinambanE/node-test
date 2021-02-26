@@ -1,12 +1,10 @@
 const express = require('express')
-const rootPath = require('../utils/path')
-const path = require('path')
-
 const router = express.Router()
 
+const { users } = require('./user')
+
 router.get('/', (req, res) => {
-    console.log(rootPath)
-    res.sendFile(path.resolve(rootPath, 'views/index.html'))
+    res.render('index', {pageTitle: 'Index', users})
 })
 
 module.exports = router

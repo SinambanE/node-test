@@ -6,8 +6,12 @@ const rootPath = require('./utils/path')
 const PORT = process.env.PORT
 const app = express()
 
-const { routes: adminRoutes } = require('./routes/admin')
+app.set('view engine', 'pug')
+
+const adminRoutes = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
+
+const errorController = require('./controllers/errorController')
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.resolve(rootPath, './public')))
@@ -16,8 +20,6 @@ app.use(express.static(path.resolve(rootPath, './public')))
 app.use('/admin', adminRoutes)
 app.use(shopRoutes)
 
-app.use((req, res) => {
-    res.status(404).sendFile(path.resolve(rootPath, './views/404.html'))
-})
+app.use(errorController.get404)
 
 app.listen(PORT)
