@@ -1,0 +1,10 @@
+extends ../layouts/app
+block styles 
+    link(rel="stylesheet" href="/css/product.css")
+block content
+    main 
+        .grid 
+            each product in products
+                include ../includes/product-card
+            else
+                h1 No Products Registered

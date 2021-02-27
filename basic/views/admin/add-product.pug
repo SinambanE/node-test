@@ -1,0 +1,9 @@
+extends ../layouts/app
+block styles
+    link(rel="stylesheet", href="/css/forms.css")
+    link(rel="stylesheet", href="/css/product.css")
+block content
+    main
+        form.product-form(action="/admin/products", method="POST")
+            include ../includes/product-form
+            button.btn(type="submit") Add Product

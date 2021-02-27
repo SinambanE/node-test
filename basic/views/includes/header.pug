@@ -2,6 +2,14 @@ header.main-header
     nav.main-header__nav
         ul.main-header__item-list
             li.main-header__item
-                a(href="/" class=shopActive ? 'active' : '') Shop
+                a(href="/" class=indexActive ? 'active' : '') Shop
             li.main-header__item
-                a(href="/admin/add-product" class=addActive ? 'active' : '') Add Product
+                a(href="/products" class=productsActive ? 'active' : '') Products
+            li.main-header__item
+                a(href="/cart" class=cartActive ? 'active' : '') Cart
+            li.main-header__item
+                a(href="/orders" class=ordersActive ? 'active' : '') Orders
+            li.main-header__item
+                a(href="/admin/products/create" class=addActive ? 'active' : '') Add Product
+            li.main-header__item
+                a(href="/admin/products" class=adminProductsActive ? 'active' : '') Products (Admin)

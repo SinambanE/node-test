@@ -1,0 +1,13 @@
+- const { title, imageUrl, price, description } = product || {}
+.form-control 
+    label(for="title") Title
+    input#title(type="text", name="title", value=title)
+.form-control 
+    label(for="imageUrl") Image Url
+    input#imageUrl(type="text", name="imageUrl", value=imageUrl)
+.form-control 
+    label(for="price") Price
+    input#price(type="number", name="price" step="0.01", value=price)
+.form-control 
+    label(for="description") Description
+    textarea#description(name="description", rows="5") #{description}
