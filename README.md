@@ -17,3 +17,17 @@ $ node-test
 $ source aliases.sh
 $ node-test-bash
 ```
+
+デフォルトポートは8080
+
+立ち上げたいアプリのディレクトリーにいって、
+
+```
+$ nodemon app.js
+```
+
+もしくは
+
+```
+$ node app.js
+```
